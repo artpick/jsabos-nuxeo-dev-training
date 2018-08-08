@@ -1,6 +1,13 @@
 # Compiled class file
 *.class
 
+# Intellij
+.idea
+*.iml
+.yo-rc.json
+
+target
+
 # Log file
 *.log
 
