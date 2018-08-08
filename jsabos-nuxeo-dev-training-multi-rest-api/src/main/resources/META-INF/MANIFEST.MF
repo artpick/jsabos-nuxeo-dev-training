@@ -1,0 +1,14 @@
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: .
+Manifest-Version: 1.0
+Bundle-Vendor: com.julian.sabos
+Bundle-Version: 1.0.0
+Bundle-Name: jsabos-nuxeo-dev-training-rest-api
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: com.julian.sabos.jsabos-nuxeo-dev-training-rest-api;singleton=true
+Fragment-Host: org.nuxeo.ecm.platform.restapi.server
+Import-Package: org.nuxeo.ecm.core.rest,
+ javax.ws.rs,
+ org.nuxeo.ecm.webengine,
+ org.nuxeo.runtime,
+ org.nuxeo.ecm.core

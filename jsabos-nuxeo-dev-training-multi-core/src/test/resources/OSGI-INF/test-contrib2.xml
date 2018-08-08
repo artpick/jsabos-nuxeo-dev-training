@@ -1,0 +1,7 @@
+<component name="com.julian.sabos.product.operations.operation.vatoperation.vat-rate-contrib2" version="1.0">
+    <extension point="rates" target="com.julian.sabos.product.services.VATService">
+        <vat-rate id="vat-rate-id">
+            <rate>12</rate>
+        </vat-rate>
+    </extension>
+</component>

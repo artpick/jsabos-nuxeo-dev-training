@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<component name="com.julian.sabos.product.operations.operation.vatoperation" version="1.0">
+
+  <extension point="operations" target="org.nuxeo.ecm.core.operation.OperationServiceComponent">
+    <operation  class="com.julian.sabos.product.operations.VATOperation"/>
+  </extension>
+
+</component>

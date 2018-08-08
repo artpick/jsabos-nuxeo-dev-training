@@ -1,0 +1,17 @@
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: .
+Manifest-Version: 1.0
+Bundle-Vendor: com.julian.sabos
+Bundle-Version: 1.0.0
+Bundle-Name: jsabos-nuxeo-dev-training-core
+Bundle-ManifestVersion: 2
+Bundle-SymbolicName: com.julian.sabos.jsabos-nuxeo-dev-training-core;singleton=true
+Nuxeo-Component: OSGI-INF/vatservice-service.xml,
+ OSGI-INF/vatoperation-operation-contrib.xml,
+ OSGI-INF/com.julian.sabos.product.adapterproduct-adapter-contrib.xml,
+ OSGI-INF/hidevisuallistener-listener-contrib.xml,
+ OSGI-INF/default-service-contrib.xml
+Import-Package: org.nuxeo.ecm.automation,
+ org.nuxeo.ecm.core,
+ com.google.common.collect,
+ org.nuxeo.runtime

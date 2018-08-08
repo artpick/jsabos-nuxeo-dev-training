@@ -1,0 +1,10 @@
+Manifest-Version: 2.0
+Bundle-ManifestVersion: 3
+Bundle-SymbolicName: com.julian.sabos.jsabos-nuxeo-dev-training-core.test
+Import-Package: org.nuxeo.ecm.automation,
+ org.nuxeo.ecm.core.event,
+ org.nuxeo.ecm.core,
+ org.nuxeo.runtime,
+ com.google.common.collect,
+ javax.ws.rs,
+ org.nuxeo.ecm.webengine

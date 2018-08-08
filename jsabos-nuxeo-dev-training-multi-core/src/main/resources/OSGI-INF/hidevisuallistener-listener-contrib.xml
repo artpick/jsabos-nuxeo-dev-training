@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<component name="com.julian.sabos.visual.listeners.listener.hidevisuallistener">
+
+  <extension target="org.nuxeo.ecm.core.event.EventServiceComponent" point="listener">
+    <listener name="hidevisuallistener"
+      class="com.julian.sabos.visual.listeners.HideVisualListener">
+        <event>beforeDocumentModification</event>
+    </listener>
+  </extension>
+
+</component>
