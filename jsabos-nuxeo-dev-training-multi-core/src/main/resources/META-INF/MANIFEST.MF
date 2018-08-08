@@ -11,7 +11,7 @@ Nuxeo-Component: OSGI-INF/vatservice-service.xml,
  OSGI-INF/com.julian.sabos.product.adapterproduct-adapter-contrib.xml,
  OSGI-INF/hidevisuallistener-listener-contrib.xml,
  OSGI-INF/default-service-contrib.xml
-Import-Package: org.nuxeo.ecm.automation,
- org.nuxeo.ecm.core,
- com.google.common.collect,
- org.nuxeo.runtime
+Import-Package: org.nuxeo.ecm.core,
+ org.nuxeo.ecm.automation,
+ org.nuxeo.runtime,
+ org.nuxeo.common

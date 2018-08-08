@@ -6,6 +6,7 @@ import com.julian.sabos.product.schema.ProductSchemaInfos;
 import com.julian.sabos.test.utils.AutomationCustom;
 import com.julian.sabos.visual.schema.VisualSchemaInfos;
 import org.assertj.core.util.Lists;
+import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.nuxeo.ecm.collections.api.CollectionManager;
@@ -13,6 +14,7 @@ import org.nuxeo.ecm.core.api.CoreSession;
 import org.nuxeo.ecm.core.api.DocumentModel;
 import org.nuxeo.ecm.core.event.EventService;
 import org.nuxeo.ecm.core.event.impl.EventListenerDescriptor;
+import org.nuxeo.runtime.api.Framework;
 import org.nuxeo.runtime.test.runner.Features;
 import org.nuxeo.runtime.test.runner.FeaturesRunner;
 
@@ -27,7 +29,6 @@ import static org.junit.Assert.assertTrue;
 @Features(AutomationCustom.class)
 public class TestHideVisualListener {
 
-    @Inject
     protected CollectionManager collectionManager;
 
     @Inject
@@ -37,6 +38,11 @@ public class TestHideVisualListener {
 
     @Inject
     protected EventService s;
+
+    @Before
+    public void init() {
+        collectionManager = Framework.getService(CollectionManager.class);
+    }
 
     @Test
     public void listenerRegistration() {

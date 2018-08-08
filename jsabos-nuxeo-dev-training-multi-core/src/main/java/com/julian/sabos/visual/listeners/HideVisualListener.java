@@ -28,7 +28,6 @@ public class HideVisualListener implements EventListener {
         if (!(ctx instanceof DocumentEventContext)) {
             return;
         }
-/*
         collectionManager = Framework.getService(CollectionManager.class);
 
         final DocumentEventContext docCtx = (DocumentEventContext) ctx;
@@ -56,7 +55,6 @@ public class HideVisualListener implements EventListener {
                         }
                     });
         }
-        */
     }
 
     private DocumentModel getHiddenFolder(final CoreSession session) {

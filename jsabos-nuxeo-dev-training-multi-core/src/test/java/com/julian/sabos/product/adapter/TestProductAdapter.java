@@ -30,6 +30,9 @@ public class TestProductAdapter {
 
         final DocumentModel doc = session.createDocumentModel("/", "test-adapter", doctype);
         final ProductAdapter adapter = doc.getAdapter(ProductAdapter.class);
+
+        Assert.assertNotNull("The adapter can't be used on the " + doctype + " document type", adapter);
+
         adapter.setTitle(testTitle);
         adapter.setPrice(testPrice);
         adapter.setDistributorSellLocation(FRANCE);
@@ -39,7 +42,6 @@ public class TestProductAdapter {
         // session.save() is only needed in the context of unit tests
         session.save();
 
-        Assert.assertNotNull("The adapter can't be used on the " + doctype + " document type", adapter);
         Assert.assertEquals("Product title does not match when using the adapter", testTitle, adapter.getTitle());
         Assert.assertEquals("Product price does not match when using the adapter", testPrice, adapter.getPrice());
         Assert.assertEquals("Product distributor sell location does not match when using the adapter", FRANCE, adapter.getDistributorSellLocation());

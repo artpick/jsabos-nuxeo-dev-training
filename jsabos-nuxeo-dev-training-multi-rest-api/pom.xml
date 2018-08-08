@@ -46,7 +46,6 @@
     <dependency>
       <groupId>nuxeo-studio</groupId>
       <artifactId>jsabos-SANDBOX</artifactId>
-      <version>nuxeo-workshop-SNAPSHOT</version>
     </dependency>
     <dependency>
       <groupId>org.nuxeo.ecm.core</groupId>

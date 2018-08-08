@@ -1,12 +1,9 @@
 <?xml version="1.0"?>
 <component name="com.julian.sabos.product.services.VATService" version="1.0">
-
     <implementation class="com.julian.sabos.product.services.VATServiceImpl"/>
-
     <service>
         <provide interface="com.julian.sabos.product.services.VATService"/>
     </service>
-
     <extension-point name="rates">
         <object class="com.julian.sabos.product.services.descriptor.VATDescriptor"/>
     </extension-point>

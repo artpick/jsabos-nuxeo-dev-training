@@ -1,8 +1,6 @@
 <?xml version="1.0"?>
 <component name="com.julian.sabos.product.adapter.adapters.product">
-
   <extension target="org.nuxeo.ecm.core.api.DocumentAdapterService" point="adapters">
     <adapter class="com.julian.sabos.product.adapter.ProductAdapter" factory="com.julian.sabos.product.adapter.ProductAdapterFactory"/>
   </extension>
-
 </component>
