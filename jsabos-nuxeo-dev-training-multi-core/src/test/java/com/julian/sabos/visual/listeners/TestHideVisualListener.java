@@ -5,13 +5,13 @@ import com.julian.sabos.product.adapter.ProductAdapter;
 import com.julian.sabos.product.schema.ProductSchemaInfos;
 import com.julian.sabos.test.utils.AutomationCustom;
 import com.julian.sabos.visual.schema.VisualSchemaInfos;
-import org.assertj.core.util.Lists;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.nuxeo.ecm.collections.api.CollectionManager;
 import org.nuxeo.ecm.core.api.CoreSession;
 import org.nuxeo.ecm.core.api.DocumentModel;
+import org.nuxeo.ecm.core.api.IdRef;
 import org.nuxeo.ecm.core.event.EventService;
 import org.nuxeo.ecm.core.event.impl.EventListenerDescriptor;
 import org.nuxeo.runtime.api.Framework;
@@ -55,7 +55,7 @@ public class TestHideVisualListener {
     public void testFireEventAndChangeDirectoryToo() {
 
         //GIVEN
-        final DocumentModel product = createProduct();
+        final DocumentModel product = createProduct2();
         final String originPath = product.getPathAsString();
         final ProductAdapter productAdapter = product.getAdapter(ProductAdapter.class);
         productAdapter.setAvailableImmediately(false);
@@ -66,7 +66,7 @@ public class TestHideVisualListener {
 
         assertThat(result.getPathAsString())
                 .isNotEqualTo(originPath)
-                .isEqualTo("/default-domain/HiddenFolder/aProduct");
+                .isEqualTo("/default-domain/HiddenFolder/aProduct2");
     }
 
     @Test
@@ -77,6 +77,8 @@ public class TestHideVisualListener {
         final DocumentModel visual = createVisual();
         addToAProductToAVisual(product, visual);
 
+        session.save();
+
         final String originProductPath = product.getPathAsString();
         final String originVisualPath = visual.getPathAsString();
 
@@ -85,15 +87,16 @@ public class TestHideVisualListener {
 
         // WHEN
         final DocumentModel result = session.saveDocument(productAdapter.toDocumentModel());
+        session.save();
         // THEN
+        // Check the Product
         assertThat(result.getPathAsString())
                 .isNotEqualTo(originProductPath)
                 .isEqualTo("/default-domain/HiddenFolder/aProduct");
-        /*
-        assertThat(result.getPathAsString())
+        // Check the Visual
+        assertThat(session.getDocument(new IdRef(visual.getId())).getPathAsString())
                 .isNotEqualTo(originVisualPath)
-                .isEqualTo("/default-domain/HiddenFolder/aProduct");
-        */
+                .isEqualTo("/default-domain/HiddenFolder/aVisual");
     }
 
     @Test
@@ -122,6 +125,17 @@ public class TestHideVisualListener {
     }
 
     /**
+     * Create a Product 2.
+     *
+     * @return
+     */
+    private final DocumentModel createProduct2() {
+        final DocumentModel aProduct = session.createDocumentModel("/default-domain/workspaces",
+                "aProduct2", ProductSchemaInfos.TYPE);
+        return session.createDocument(aProduct);
+    }
+
+    /**
      * Create a Visual.
      *
      * @return
@@ -136,6 +150,6 @@ public class TestHideVisualListener {
      * Add to a product to a visual.
      */
     private final void addToAProductToAVisual(final DocumentModel aProduct, final DocumentModel aVisual) {
-        collectionManager.addToCollection(aProduct, Lists.newArrayList(aVisual), session);
+        collectionManager.addToCollection(aProduct, aVisual, session);
     }
 }

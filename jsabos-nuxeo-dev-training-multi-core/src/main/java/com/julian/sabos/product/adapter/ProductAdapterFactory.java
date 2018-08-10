@@ -13,7 +13,7 @@ public class ProductAdapterFactory implements DocumentAdapterFactory {
     public Object getAdapter(DocumentModel doc, Class<?> itf) {
         if (PRODUCT.equals(doc.getType())
                 && doc.hasSchema(DUBLINCORE)
-                && doc.hasSchema("collection")
+                // && doc.hasSchema("collection")
                 && doc.hasSchema(ProductVisualSchemaInfos.SCHEMA_NAME)){
             return new ProductAdapter(doc);
         }else{
